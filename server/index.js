@@ -8,6 +8,7 @@ import notFoundMiddleware from './middleware/not-found.js'
 import errorHandlerMiddleware from './middleware/error-handler.js'
 import authRouter from './routes/authRoutes.js'
 import messageRouter from './routes/messageRoute.js'
+import userRouter from './routes/userRoute.js'
 import { connectDB } from './db/connect.js'
 
 app.use(express.json())
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1/auth', authRouter)
 app.use('/api/v1/message', messageRouter)
+app.use('/api/v1/user', userRouter)
 
 app.use(notFoundMiddleware)
 app.use(errorHandlerMiddleware)
