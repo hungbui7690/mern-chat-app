@@ -1,1 +1,1 @@
-- install server package in root folder, not in /server 
+[Avatar Placeholder](https://avatar-placeholder.iran.liara.run/)
