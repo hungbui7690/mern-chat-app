@@ -1,0 +1,1 @@
+- install server package in root folder, not in /server 
