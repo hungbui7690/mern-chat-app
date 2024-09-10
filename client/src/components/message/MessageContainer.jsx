@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
-import useConversation from '../../zustand/useConversation'
+import useStore from '../../zustand/useStore'
 import MessageInput from './MessageInput'
 import Messages from './Messages'
 import { TiMessages } from 'react-icons/ti'
-import { useAuthContext } from '../../context/authContext'
+import { useAuthContext } from '../../context/AuthContext'
 
 const MessageContainer = () => {
-  const { selectedConversation, setSelectedConversation } = useConversation()
+  const { selectedConversation, setSelectedConversation } = useStore()
 
   useEffect(() => {
     // cleanup function (unmounts)

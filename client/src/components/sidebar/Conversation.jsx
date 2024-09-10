@@ -1,7 +1,7 @@
-import useConversation from '../../zustand/useConversation'
+import useStore from '../../zustand/useStore'
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
-  const { selectedConversation, setSelectedConversation } = useConversation()
+  const { selectedConversation, setSelectedConversation } = useStore()
   const isSelected = selectedConversation?._id === conversation._id
 
   return (

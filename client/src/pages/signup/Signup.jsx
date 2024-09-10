@@ -1,19 +1,9 @@
 import GenderRadioBox from './GenderRadioBox'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import useSignup from '../../hooks/useSignUp'
-import { useAuthContext } from '../../context/authContext'
-import { useEffect } from 'react'
 
 const SignUp = () => {
-  const navigate = useNavigate()
-  const { authUser } = useAuthContext()
   const { loading, signup } = useSignup()
-
-  useEffect(() => {
-    if (authUser) {
-      navigate('/')
-    }
-  }, [authUser, navigate])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

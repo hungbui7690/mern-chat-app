@@ -1,11 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { useAuthContext } from '../../context/authContext'
-import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import useLogin from '../../hooks/useLogin'
 
 const Login = () => {
-  const navigate = useNavigate()
-  const { authUser } = useAuthContext()
   const { loading, login } = useLogin()
 
   const handleSubmit = async (e) => {
@@ -15,19 +11,12 @@ const Login = () => {
     await login(inputs)
   }
 
-  useEffect(() => {
-    if (authUser) {
-      navigate('/')
-    }
-  }, [authUser, navigate])
-
   return (
     <div className='flex flex-col justify-center items-center mx-auto min-w-96'>
       <div className='bg-clip-padding bg-gray-400 bg-opacity-0 shadow-md backdrop-blur-lg backdrop-filter p-6 rounded-lg w-full'>
         <h1 className='font-semibold text-3xl text-center text-gray-300'>
           Login
         </h1>
-
         <form onSubmit={handleSubmit}>
           <div>
             <label className='p-2 label'>
@@ -41,7 +30,6 @@ const Login = () => {
               defaultValue={'admin'}
             />
           </div>
-
           <div>
             <label className='label'>
               <span className='text-base label-text' autoComplete={'true'}>
@@ -53,7 +41,7 @@ const Login = () => {
               placeholder='Enter Password'
               name='password'
               className='input-bordered w-full h-10 input'
-              defaultValue={'123456'}
+              defaultValue='121212'
               autoComplete='true'
             />
           </div>
@@ -64,7 +52,6 @@ const Login = () => {
           >
             {"Don't"} have an account?
           </Link>
-
           <div>
             <button className='btn-block mt-2 btn btn-sm' disabled={loading}>
               {loading ? (
