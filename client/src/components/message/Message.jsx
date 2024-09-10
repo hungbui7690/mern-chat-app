@@ -1,4 +1,4 @@
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/authContext'
 import useStore from '../../zustand/useStore'
 import { extractTime } from '../../utils/extractTime'
 
@@ -12,6 +12,7 @@ const Message = (message) => {
     ? authUser.profilePic
     : selectedConversation?.profilePic
   const bubbleBgColor = fromMe ? 'bg-sky-500' : ''
+  const shakeEffect = message.shouldShake ? 'shake' : ''
 
   return (
     <div className={`chat ${chatClassName}`}>
@@ -20,7 +21,9 @@ const Message = (message) => {
           <img alt='' src={profilePic} />
         </div>
       </div>
-      <div className={`chat-bubble text-white ${bubbleBgColor} pb-2`}>
+      <div
+        className={`chat-bubble text-white ${bubbleBgColor} ${shakeEffect} pb-2`}
+      >
         {message.message.message}
       </div>
       <div className='flex items-center gap-1 opacity-50 text-xs chat-footer'>

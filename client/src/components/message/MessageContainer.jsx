@@ -3,10 +3,12 @@ import useStore from '../../zustand/useStore'
 import MessageInput from './MessageInput'
 import Messages from './Messages'
 import { TiMessages } from 'react-icons/ti'
-import { useAuthContext } from '../../context/AuthContext'
+import { useAuthContext } from '../../context/authContext'
+import useListenMessages from '../../hooks/useListenMessages'
 
 const MessageContainer = () => {
   const { selectedConversation, setSelectedConversation } = useStore()
+  useListenMessages()
 
   useEffect(() => {
     // cleanup function (unmounts)
@@ -32,7 +34,6 @@ const MessageContainer = () => {
     </div>
   )
 }
-export default MessageContainer
 
 const NoChatSelected = () => {
   const { authUser } = useAuthContext()
@@ -46,3 +47,5 @@ const NoChatSelected = () => {
     </div>
   )
 }
+
+export default MessageContainer

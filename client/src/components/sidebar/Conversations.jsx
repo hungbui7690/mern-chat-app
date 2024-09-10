@@ -1,8 +1,28 @@
-import useGetConversations from '../../hooks/useGetConversations'
+import { useState } from 'react'
 import Conversation from './Conversation'
+import { useEffect } from 'react'
+import { axiosInstance } from '../../utils/axios'
+import toast from 'react-hot-toast'
 
 const Conversations = () => {
-  const { loading, conversations } = useGetConversations()
+  const [loading, setLoading] = useState(false)
+  const [conversations, setConversations] = useState([])
+
+  useEffect(() => {
+    const getConversations = async () => {
+      setLoading(true)
+      try {
+        const res = await axiosInstance.get('/user')
+        setConversations(res.data)
+      } catch (error) {
+        toast.error(error.response.data.msg)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    getConversations()
+  }, [])
 
   return (
     <div className='flex flex-col py-2 overflow-auto'>

@@ -2,14 +2,14 @@ import jwt from 'jsonwebtoken'
 import User from '../model/User.js'
 import { UnauthenticatedError, NotFoundError } from '../errors/index.js'
 
-const protectRoute = async (req, res, next) => {
+const authenticateUser = async (req, res, next) => {
   // get token from cookie
-  const token = req.cookies.jwt
+  const token = req.signedCookies.token
   if (!token) {
     throw new UnauthenticatedError('Unauthenticated - No Token Provided')
   }
 
-  // decode = {userId}
+  // verify token -> decode = {userId}
   const decoded = jwt.verify(token, process.env.JWT_SECRET)
   if (!decoded) {
     throw new UnauthenticatedError('Unauthenticated - Invalid Token')
@@ -27,4 +27,4 @@ const protectRoute = async (req, res, next) => {
   next()
 }
 
-export default protectRoute
+export default authenticateUser
