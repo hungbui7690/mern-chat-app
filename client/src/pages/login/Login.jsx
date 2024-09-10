@@ -38,6 +38,7 @@ const Login = () => {
               placeholder='Enter username'
               name='username'
               className='input-bordered w-full h-10 input'
+              defaultValue={'admin'}
             />
           </div>
 
@@ -52,6 +53,7 @@ const Login = () => {
               placeholder='Enter Password'
               name='password'
               className='input-bordered w-full h-10 input'
+              defaultValue={'123456'}
               autoComplete='true'
             />
           </div>
