@@ -1,4 +1,4 @@
-const GenderRadio = () => {
+const GenderRadioBox = () => {
   return (
     <div className='flex gap-4'>
       <div className='form-control'>
@@ -27,4 +27,4 @@ const GenderRadio = () => {
   )
 }
 
-export default GenderRadio
+export default GenderRadioBox

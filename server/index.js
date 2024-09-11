@@ -29,9 +29,8 @@ app.use('/api/v1/user', userRouter)
 
 app.get('*', (req, res) => {
   res.sendFile(
-    path.join(__dirname, '../client', 'index.html')
-    // ||
-    //   path.join(__dirname, '../client', 'dist', 'index.html')
+    // path.join(__dirname, '../client', 'index.html')
+    path.join(__dirname, '../client', 'dist', 'index.html')
   )
 })
 

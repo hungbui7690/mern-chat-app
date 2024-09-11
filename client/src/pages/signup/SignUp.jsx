@@ -73,9 +73,7 @@ const SignUp = () => {
               defaultValue={'121212'}
             />
           </div>
-
           <GenderRadioBox />
-
           <Link
             to={'/login'}
             className='inline-block mt-2 text-blue-600 text-sm hover:underline'
@@ -83,7 +81,6 @@ const SignUp = () => {
           >
             Already have an account?
           </Link>
-
           <div>
             <button
               className='btn-block border-slate-700 mt-2 border btn btn-sm'
